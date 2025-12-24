@@ -1,6 +1,6 @@
 export class Debitos {
   static calcularPercentual(divida: number, capag: number): number {
-    return (capag / divida) * 100;
+    return Number(((capag / divida) * 100).toFixed(2));
   }
 
   static calcularDesconto(percentual: number, porte: string): number {
@@ -12,16 +12,16 @@ export class Debitos {
     } else if (porte === "Demais" && percentualFinal > 0.65) {
       return 65;
     } else {
-      return percentualFinal * 100;
+      return Number((percentualFinal * 100).toFixed(2));
     }
   }
 
   static valorDesconto(divida: number, desconto: number): number {
-    return divida * (desconto / 100);
+    return Number((divida * (desconto / 100)).toFixed(2));
   }
 
   static valorAposDesconto(divida: number, valorDesconto: number): number {
-    return divida - valorDesconto;
+    return Number((divida - valorDesconto).toFixed(2));
   }
 
   static rating(divida: number, capag: number): string {
